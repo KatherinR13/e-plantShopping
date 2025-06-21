@@ -51,7 +51,10 @@ const CartItem = ({ onContinueShopping }) => {
 
     // Calculate total cost based on quantity for an item
     const calculateTotalCost = (item) => {
-    };
+        const unitPrice = parseFloat(item.cost.substring(1)); // Remove "$" and convert to number
+        return (item.quantity * unitPrice).toFixed(2); // Keep 2 decimal places
+      };
+      
 
     return (
         <div className="cart-container">
