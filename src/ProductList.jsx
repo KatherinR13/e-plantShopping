@@ -14,6 +14,15 @@ function ProductList({ onHomeClick }) {
     return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
   };
 
+  useEffect(() => {
+  const updatedAddedToCart = {};
+  CartItems.forEach(item => {
+    updatedAddedToCart[item.name] = true;
+  });
+
+  setAddedToCart(updatedAddedToCart); // ✅ Update state based on actual cart items
+}, [CartItems]);
+
 
     const plantsArray = [
         {
